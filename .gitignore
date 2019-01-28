@@ -1,0 +1,10 @@
+*
+!*/
+!.gitignore
+!*.md
+!*.tex
+!*.pdf
+!*.pdf_tex
+!*.svg
+!*.png
+!*.jpg

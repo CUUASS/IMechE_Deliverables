@@ -1,0 +1,82 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[justification=centering]{caption}
+\usepackage{siunitx}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{float}
+
+\graphicspath{{figs/}}
+
+\titlespacing*{\section}{0em}{1.3em}{0.2em}
+\titlespacing*{\subsection}{0em}{1.0em}{0.15em}
+\titlespacing*{\subsubsection}{0em}{1.0em}{0.1em}
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \LARGE
+    Preliminary Design Review\\
+    \vspace*{0.5cm}
+    \Huge
+    \textbf{Cambridge University Unmanned Air Systems Society}\\
+    \vspace{0.5cm}
+    \huge
+    University of Cambridge\\
+    \vspace{3cm}
+    \begin{figure}[H]
+	    \centering
+	    \def\svgwidth{0.25\textwidth}
+	    \input{figs/cambridge.pdf_tex}
+    \end{figure}
+    \vspace{3cm}
+    \large
+    \centering\textbf{Team Members}\\
+    \vspace{0.2cm}
+    \begin{tabularx}{0.75\textwidth}{X l r}
+      Nathanael West        & Engineering,      &  4\textsuperscript{th} year\\
+      Philip Salmony        & Engineering,      &  4\textsuperscript{th} year\\
+      Ximin Sun             & Engineering,      &  3\textsuperscript{rd} year\\
+      Ricky Kawagishi       & Engineering,      &  1\textsuperscript{st} year\\
+      Conor Hocking         & Engineering,      &  1\textsuperscript{st} year\\
+      Jeff Wang             & Engineering,      &  1\textsuperscript{st} year\\
+    \end{tabularx} \\
+    \vspace{0.5cm}
+    \textbf{Supervisor}\\
+    \vspace{0.1cm}
+    Dr. Richard Roebuck\\
+    \vspace{0.5cm}
+    \textbf{Sponsors}\\
+    \vspace{0.1cm}
+    Cambridge University Engineers Association\\
+    Cambridge University Engineering Society\\
+    Student-led Projects and Industry Partnership (The Boeing Company, Marshall Aerospace and Defence Group, McLaren Technology Group)\\
+  \end{center}
+\end{titlepage}
+
+\section{Project Management} % 2 pages
+\input{project_management}
+
+\section{Requirement Verification} % 1 page
+\input{requirement_verification}
+
+\section{Performance Calculations} % 2 pages
+\input{performance_calcs}
+
+\section{Cost Budget} % 0.5 pages
+\input{cost_budget}
+
+\section{Safety} % 1 page
+\input{safety}
+
+\section{Design Description} % 3 pages
+\input{design_description}
+
+\section{Test Plan} % 0.5 pages
+\input{test_plan}
+
+\end{document}
