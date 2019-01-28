@@ -9,7 +9,12 @@
 \usepackage{enumitem}
 \usepackage{color}
 \usepackage{float}
+\usepackage{longtable}
+\usepackage{array,etoolbox}
 
+\preto\tabular{\setcounter{magicrownumbers}{0}}
+\newcounter{magicrownumbers}
+\def\rownumber{}
 \graphicspath{{figs/}}
 
 \titlespacing*{\section}{0em}{1.3em}{0.2em}
