@@ -1,44 +1,33 @@
-\noindent \textbf{Safety Risks and Mitigation} \\
-Table XXX below gives a summary of major safety risks and their respective mitigations encountered in all stages of design, testing, and final mission deployment of the UAV.
+\subsection{Safety Risks and Mitigation}
+Table \ref{tab:risks} below gives a summary of major safety risks and their respective mitigations encountered in all stages of design, testing, and final mission deployment of the UAV.
 
 \begin{table}[h]
- \centering
- \begin{tabular}{||c | c | p{55mm}||} 
- \hline
- \textit{ID} & \textit{Risk} & \textit{Mitigation} \\ [0.5ex] 
- \hline\hline
- S1 & Propeller blades & Safe distance from UAV before motors are armed and then started \\
- \hline
- S2 & LiPo battery charging & Undertaken in fire-retardant LiPo charging box \\
- \hline
- S3 & Loss of uplink/downlink connection & Flight termination system (FTS, see below) \\
- \hline
- S4 & Faulty automatic control & Ability to switch to manual or initiate FTS via master controller \\
- \hline
- S5 & UAV out-of-bounds or above height limit & Sensor feedback (GPS, pressure), position and alerts relayed to base-station \\
- \hline
- S6 & Exceeding maximum airspeed & Pitot tube feedback limiting airspeed \\
- \hline
- S7 & Payload delivery & Payload retardation system (see below) \\
- \hline
-\end{tabular}
+\begin{tabularx}{\textwidth}{ p{0.03\textwidth} | p{0.35\textwidth} | X } 
+\textbf{ID} & \textbf{Risk} & \textbf{Mitigation} \\ \hline
+S1 & Propeller blades & Safe distance from UAV before motors are armed and then started \\ \hline
+S2 & LiPo battery charging & Undertaken in fire-retardant LiPo charging box \\ \hline
+S3 & Loss of uplink/downlink connection & Flight termination system (FTS, see below) \\ \hline
+S4 & Faulty automatic control & Ability to switch to manual or initiate FTS via master controller \\ \hline
+S5 & UAV out-of-bounds or above height limit & Sensor feedback (GPS, pressure), position and alerts relayed to base-station \\ \hline
+S6 & Exceeding maximum airspeed & Pitot tube feedback limiting airspeed \\ \hline
+S7 & Payload delivery & Payload retardation system (see below) \\
+\end{tabularx}
 \caption{Risk and Corresponding Mitigation}
+\label{tab:risks}
 \end{table}
 
-\noindent \textbf{RF Compliance} \\
-The data telemetry unit found in the UAV and base-station compromises a pair of \textit{Digi XBee S2C 802.15.4} 2.4 GHz \textit{Direct Sequence Spread Spectrum} transceivers. In addition to fulfilling the requirements of being 2.4 GHz and spread spectrum, they operate at a maximum of 6.3 mW transmit power. These units are also approved by the \textit{European Telecommunications Standards Institute (ETSI)} for use in Europe. Thus, our UAV complies with the strict legal requirements in the UK for RF transmissions. \\
+\subsection{RF Compliance}
+The data telemetry unit found in the UAV and base-station compromises a pair of \textit{Digi XBee S2C 802.15.4} 2.4 GHz \textit{Direct Sequence Spread Spectrum} transceivers. In addition to fulfilling the requirements of being 2.4 GHz and spread spectrum, they operate at a maximum of 6.3 mW transmit power. These units are also approved by the \textit{European Telecommunications Standards Institute (ETSI)} for use in Europe. Thus, our UAV complies with the strict legal requirements in the UK for RF transmissions.
 
-\noindent \textbf{Flight Termination System (FTS)} \\
+\subsection{Flight Termination System (FTS)}
 The FTS onboard the UAV complies fully with the guidelines layed out in \textit{Section 3.3.1} of the 2019 UAS Challenge Competition Rules. In particular,
-
 \begin{itemize}
 \item the FTS is selectable via the master controller using a two-way toggle switch,
 \item on activation the main control unit onboard the UAV sets the throttle to zero,
 \item the relevant control surfaces being set to initiate a gentle turn.
 \item Additionally, the FTS is initiated after 5 seconds lost uplink and initiated after 10 seconds lost downlink.
 \end{itemize}
+The control unit onboard the UAV has two separate countdown timers running (5s and 10s) which reset when data is received via the uplink and downlink respectively, as well as constantly monitoring the signal level of the master controller toggle switch, to determine when the FTS needs to be activated.
 
-\noindent The control unit onboard the UAV has two separate countdown timers running (5s and 10s) which reset when data is received via the uplink and downlink respectively, as well as constantly monitoring the signal level of the master controller toggle switch, to determine when the FTS needs to be activated. \\
-
-\noindent \textbf{Payload Retardation System} \\
+\subsection{Payload Retardation System}
 To allow the payloads to be delivered intact without any harm to the deliverables themselves as well as to the environment, the payloads will be fitted with parachutes which shall deploy when the respective payload is released.
