@@ -3,7 +3,7 @@
 !.gitignore
 !*.md
 !*.tex
-!*.pdf
+!*cambridge.pdf
 !*.pdf_tex
 !*.svg
 !*.png
