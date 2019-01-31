@@ -1,4 +1,83 @@
-\textcolor{red}{
-preliminary aerodynamic, structural, and peformance calculations supporting the initial sizing, basic stability and control calculations, and weight and balance estimate.
-}
+\subsection{Aerodynamic design and performance}
+\subsubsection{Wing sizing}
+It is decided that the aircraf should not have a take-off speed larger than 12$\si{m.s^{-1}}$, as the resulting vibrations the landing gear is subjected to on potentially uneven grass surfaces could damage the aircraft. Including a safety margin of $\approx 20\%$, the stalling speed is thus set to 10$\si{m.s^{-1}}$. The wing loading may thus be found addording to \cite[p. 410]{anderson}:
+\begin{equation}
+  \dfrac{W}{S}=\dfrac{1}{2}\rho_{\infty}V_{stall}^2C_{L,\,max}=0.5\times 1.225\times 10^2\times 2.0=122.5\si{Pa}
+\end{equation}
+from which the wing planform area $S$ is calculated as
+\begin{equation}
+  S=\dfrac{6.9\times 9.81}{122.5}=0.553\si{m^2}
+\end{equation}
+The maximum length of a wing half is constrained by the foam pieces available to us and is 1.1$\si{m}$.
+
+\subsubsection{Wing configuration}
+Due to the hot wire cutting process, the wing shape is linearly interpolated between the root and the tip. A taper ratio of $\lambda=0.5$ is chosen as it provides an induced drag only $1.3\%$ higher than the theoretical minimum (for an elliptical lift distribution) and provides sufficient aileron control at near-stall conditions (ref. \cite[pp. 422-425]{anderson}). Therefore no wing twist is required. For a low speed subsonic aircraft, no wing sweep is required. We may calculate the root and tip wing chords $c_r$ and $c_t$:
+\begin{align}
+  \begin{split}
+    c_r&=\dfrac{2S}{(\lambda +1)b}=\dfrac{2\times 0.553}{(0.5+1)\times 2.2}=0.335\si{m}\\
+    c_t&=\lambda c_r=0.5\times 0.335=0.168\si{m}
+  \end{split}
+\end{align}
+
+\subsection{Stability and control}
+
+\subsubsection{Longitudinal stability}
+The location of the neutral point may be estimated using an analysis by \cite[p. 417]{raymer}, which has been simplified for our purposes:
+\begin{equation}
+	\overline{X}_{acw}=\dfrac{SM+\overline{X}_{cg}-\dfrac{\eta_h\frac{C_{L_{\alpha_h}}}{C_{L_\alpha}}\frac{\partial\alpha_h}{\partial\alpha}S_{HT}}{S+\eta_h\frac{C_{L_{\alpha_h}}}{C_{L_\alpha}}\frac{\partial\alpha_h}{\partial\alpha}S_{HT}}\overline{X}_{ach}}{1-\dfrac{\eta_h\frac{C_{L_{\alpha_h}}}{C_{L_\alpha}}\frac{\partial\alpha_h}{\partial\alpha}S_{HT}}{S+\eta_h\frac{C_{L_{\alpha_h}}}{C_{L_\alpha}}\frac{\partial\alpha_h}{\partial\alpha}S_{HT}}}
+\end{equation}
+For $\partial \alpha_h/\partial \alpha$, we use graphical data presented by Raymer (\cite[pp. 426-427]{raymer}), who gives values for the derivative of the downwash angle $\epsilon$ w.r.t the angle of attack $\alpha$ as a function of the aspect ratio $A$, the taper ratio $\lambda$, and two parameters $r$ and $m$. $r=l_{HT}/(b/2)=0.9/1.1\approx 0.8$, and $m=z_t/(b/2)$ is the non-dimensional vertical distance of the elevator to the wing $z_t$, based on the zero-lift angle. The wing is mounted such that the flat bottom of the aerofoil is parallel to the aircraft axis, such that the zero lift angle is $\alpha_0\approx -6\degree$ (using \cite[p. 83]{airfoildata}). Then $m\approx \sin{(\alpha_0)}l_{HT}/(b/2)\approx \sin{(6\degree)}\times 0.9/(2.35/2)=0.08$. We then find $d\epsilon/d\alpha\approx 0.4$. Using an equation presented by Raymer we can then find the quantity $\partial \alpha_h/\partial \alpha$:
+\begin{equation}
+  \dfrac{\partial\alpha_h}{\partial\alpha}=1-\dfrac{\partial\epsilon}{\partial\alpha}\approx 1-0.4=0.6
+\end{equation}
+
+Measuring all positions from the centre of mass, we have $X_{cg}=0$, $X_{HT}=l_{HT}=0.9\si{m}$. We shall again assume that all aerodynamic centres are at the quarter chord position. For $\eta_h$, Raymer states that a typical value is $0.9$. For the ratio of wing lift slope to tail lift slope the value $C_{L_{\alpha_h}}/C_{L_\alpha}=0.69$ is calculated. Hence
+\begin{equation}
+  \dfrac{\eta_h\frac{C_{L_{\alpha_h}}}{C_{L_\alpha}}\frac{\partial\alpha_h}{\partial\alpha}S_{HT}}{S+\eta_h\frac{C_{L_{\alpha_h}}}{C_{L_\alpha}}\frac{\partial\alpha_h}{\partial\alpha}S_{HT}}=\dfrac{0.9\times 0.69\times 0.6\times 0.112}{0.553+0.9\times 0.69\times 0.6\times 0.112}=0.0702
+\end{equation}
+Choosing a stability margin of 10\%, we get
+\begin{equation}
+  X_{acw}=\dfrac{0.261\times 0.10+0-0.0702\times 0.9} {1-0.0702\times 0.9}=-0.040\si{m}
+\end{equation}
+A stability analysis is also performed using Mark Drela's AVL code. The resulting stability margin is 14\%, i.e. close to the desired 10\%.
+
+\subsubsection{Sizing of tail surfaces}
+\cite{raymer} provides suggested values for the horizontal and vertical tail volume ratios $V_{HT}$ and $V_{VT}$ for single engine general aviation aircraft (\cite[p. 112]{raymer}):
+\begin{equation}
+  \text{Horizontal tail: } V_{HT}=\dfrac{l_{HT}S_{HT}}{\overline{c}S}=0.7 \qquad \text{Vertical tail: } V_{VT}=\dfrac{l_{VT}S_{VT}}{bS}=0.04
+\end{equation}
+For the horizontal tail we specify an aspect ratio $A_{HT}$. This aspect ratio should be smaller than $A$. This is so that the tail stalls at a higher angle of attack than the wing and control authority is maintained (\cite[p. 438]{anderson}). We thus choose an aspect ratio of $A_h=4$. We also choose no tapering for our horizontal tail. For the vertical tail halves, we choose $A_{VT}=1.3$ and no tapering. For the horizontal distances from the centre of mass to the respective tail aerodynamic centres, we choose $l_{HT}=0.9\si{m}$ and $l_{VT}=1.07\si{m}$. Thus we get
+\begin{align}
+  \begin{split}
+    S_{HT}&=0.7\times 0.261\times 0.553/0.9=0.112\si{m^2} \\
+    S_{VT}&=0.04\times 2.35\times 0.553/1.07=0.049\si{m^2} \\
+    c_{HT}&=\sqrt{\dfrac{S_{HT}}{A_{HT}}}=\sqrt{0.112/4}=0.167\si{m} \\
+    b_{HT}&=0.112/0.167=0.671\si{m} \\
+    c_{VT}&=\sqrt{\dfrac{S_{VT}}{A_{VT}}}=\sqrt{\frac{1}{2}\times 0.049/1.3}=0.137\si{m} \\
+    b_{VT}&=\frac{1}{2}\times 0.049/0.137=0.179\si{m} \\
+  \end{split}
+\end{align}
+
+\subsection{Weight and balance estimate}
+Table \ref{tab:weights} shows the aircraft component masses and the x-component of the position of their respective centres of mass with respect to the aircraft centre of mass. After rounding, the MTOM requirement of 6.9kg is fulfilled. The sum of moments is close to zero, and so it seems balance will be achieved.
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{X|>{\hfill}p{0.15\textwidth}|>{\hfill}p{0.25\textwidth}|>{\hfill}p{0.20\textwidth}}
+		\textbf{Component/Assembly} & \textbf{Mass /g} & \textbf{x-value of c.o.m. /mm} & \textbf{Moment /g.mm}\\ \hline
+		Wings & 970 & 0 & 0 \\ \hline
+		Horizontal tail & 150 & 950 & 14250 \\ \hline
+		Vertical tails & 100 & 1100 & 110000 \\ \hline
+		Tubes connecting the tail & 100 & 450 & 45000\\ \hline
+		Motor+ESC+Propeller & 490 & 200 & 98000 \\ \hline
+		Fuselage \& Wing Spar & 450 & -150 & -67500 \\ \hline
+		Electronics & 315 & -200 & -63000 \\ \hline
+		Battery & 400 & -260 & -104000 \\ \hline
+		Landing gear & 250 & 80 & -20000 \\ \hline
+		G-Rays GPS Tracker & 50 & -250 & 12500 \\ \hline
+		Payload & 3670 & 0 & 0 \\ \hline
+		\textbf{Total} & \textbf{6945} & & \textbf{250} \\
+	\end{tabularx}
+	\caption{Weight and balance estimates}
+	\label{tab:weights}
+\end{table}
 

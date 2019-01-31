@@ -11,6 +11,11 @@
 \usepackage{float}
 \usepackage{longtable}
 \usepackage{array,etoolbox}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
 
 \preto\tabular{\setcounter{magicrownumbers}{0}}
 \newcounter{magicrownumbers}
@@ -65,23 +70,32 @@
 
 \section{Project Management} % 2 pages
 \input{project_management}
+\newpage
 
 \section{Requirement Verification} % 1 page
 \input{requirement_verification}
+\newpage
 
-\section{Performance Calculations} % 2 pages
+\section{Design \& Performance Calculations} % 2 pages
 \input{performance_calcs}
+\newpage
 
 \section{Cost Budget} % 0.5 pages
 \input{cost_budget}
+\newpage
 
 \section{Safety} % 1 page
 \input{safety}
+\newpage
 
 \section{Design Description} % 3 pages
 \input{design_description}
+\newpage
 
 \section{Test Plan} % 0.5 pages
 \input{test_plan}
+\newpage
+
+\input{bibliography}
 
 \end{document}
