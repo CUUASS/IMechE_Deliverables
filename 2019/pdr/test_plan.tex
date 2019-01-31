@@ -1,25 +1,17 @@
-Table XXX below gives a brief summary of the testing that will be undertaken to support the design of the UAV.
+Table \ref{tab:tests} below gives a brief summary of the testing that will be undertaken to support the design of the UAV.
 
 \begin{table}[h]
- \centering
- \begin{tabular}{||c | c | p{70mm}||} 
- \hline
- \textit{ID} & \textit{Title} & \textit{Details} \\ [0.5ex] 
- \hline\hline
- T1 & Power consumption & Volt- and ammeter connected in parallel and series respectively to LiPo battery. \\
- \hline
- T2 & Control system & Hardware-in-the-loop and software-in-the-loop testing of custom flight controller and all autonomous features (e.g. take-off, landing). \\
- \hline
- T3 & Airframes stability & Simulation of aircraft using Simulink. Aerodynamic coefficients gathered via AVL (DATCOM alternative). \\
- \hline
- T4 & Flight Termination System & Manual and automatic activation of FTS, by toggle switch or disconnecting uplink/downlink telemetry. \\
- \hline
- T5 & Range Test & Testing maximum distance away from base-station and master controller that telemetry signal level is above minimum threshold. \\
- \hline
- T6 & Waypoint navigation & Fly through a set of pre-defined GPS waypoints and determine navigational accuracy. \\
- \hline
- T7 & Payload delivery & Drop of all payloads, both manually and automatically, above pre-defined GPS waypoints. \\
- \hline
-\end{tabular}
+\centering
+\begin{tabularx}{\textwidth}{ p{0.04\textwidth} | X | p{0.6\textwidth} } 
+\textbf{ID} & \textbf{Title} & \textbf{Details} \\ \hline
+T1 & Power consumption & Volt- and ammeter connected in parallel and series respectively to LiPo battery. \\ \hline
+T2 & Control system & Hardware-in-the-loop and software-in-the-loop testing of custom flight controller and all autonomous features (e.g. take-off, landing). \\ \hline
+T3 & Airframes stability & Simulation of aircraft using Simulink. Aerodynamic coefficients gathered via AVL (DATCOM alternative). \\ \hline
+T4 & Flight Termination System & Manual and automatic activation of FTS, by toggle switch or disconnecting uplink/downlink telemetry. \\ \hline
+T5 & Range Test & Testing maximum distance away from base-station and master controller that telemetry signal level is above minimum threshold. \\ \hline
+T6 & Waypoint navigation & Fly through a set of pre-defined GPS waypoints and determine navigational accuracy. \\ \hline
+T7 & Payload delivery & Drop of all payloads, both manually and automatically, above pre-defined GPS waypoints. \\
+\end{tabularx}
 \caption{Items to be tested}
+\label{tab:tests}
 \end{table}
