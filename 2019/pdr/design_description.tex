@@ -3,7 +3,7 @@
 \subsection{Propulsion}
 
 \subsection{Flight Control System}
-The flight control system on board the UAV encompasses areas such as stability augmentation, navigation, and mission control. These tasks are performed on a completely custom 32-bit ARM-based microcontroller board, which has all required sensors and interfaces directly on it. Additionally, a Raspberry Pi 3+ single-board computer as well the corresponding Pi v2 camera is used for the tasks that require image processing and recognition. A block diagram overview of the entire system is given in Figure \ref{fig:SysBlockDiag} below.
+The flight control system on board the UAV encompasses areas such as stability augmentation, navigation, and mission control. These tasks are performed on a completely custom 32-bit ARM-based microcontroller board, which has all required sensors and interfaces directly on it. Additionally, a Raspberry Pi 3+ single-board computer as well the corresponding Pi v2 camera is used for the tasks that require image processing and recognition. Finally, a 2.4GHz spread-spectrum transceiver is used both on the UAV and at the basestation to enable the transmission of mission-critical data. A block diagram overview of the entire system is given in Figure \ref{fig:SysBlockDiag} below.
 
 \begin{figure}[H]
 \centering
@@ -30,8 +30,9 @@ The image processing and recognition is performed using a Raspberry Pi 3+ and a 
 
 \subsection{Innovative Features}
 \begin{itemize}
-	\item
-		innovative feature
+	\item State-of-the-art $H_{\infty}$ control system.
+	\item Custom, high-speed electronic sub-systems.
+	\item In-flight system identification.
 \end{itemize}
 
 \subsubsection{Flight Termination System (FTS)}
