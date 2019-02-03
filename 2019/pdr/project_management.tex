@@ -1,9 +1,76 @@
-\textcolor{red}{
-\begin{itemize}
-	\item
-		project plan with main activities, lead times, and dependencies
-	\item
-		table summarising risks and their mitigation
-\end{itemize}
+\subsection{Gantt Chart}
+\resizebox{\linewidth}{!}{
+\begin{ganttchart}[
+		hgrid,
+		x unit=3mm,
+		y unit title=.6cm,
+		y unit chart=.4cm,
+		expand chart=\textwidth,
+		group label font=\tinyBoldFont,
+		bar label font=\tinyFont,
+		milestone label font=\tinyItFont,
+		link bulge=2.5,
+		link/.append style={thick,linkgreen},
+		bar/.append style={fill=barblue},
+		title font/.style={black},
+		group/.append style={groupred},
+		group height=0.5,
+		milestone height=0.6,
+		milestone left shift=0.08,
+		milestone right shift=1.4,
+		group peaks height=0.3,
+		group peaks width=2,
+		bar height=0.55,
+		time slot format=isodate
+		]{2019-02-03}{2019-06-16}
+	\gantttitlecalendar{year, month=shortname} \\
+
+	\ganttgroup{Deliverables}{2019-02-03}{2019-06-16} \ganttnewline
+	\ganttmilestone{Preliminary Design Review}{2019-02-03} \ganttnewline
+	\ganttlinkedmilestone{Critical Design Review}{2019-04-08} \ganttnewline
+	\ganttlinkedmilestone{Flight Readiness Review}{2019-06-03} \ganttnewline
+	\ganttmilestone{Design and Development Poster}{2019-06-03} \ganttnewline
+	\ganttlinkedmilestone{FRR Interviews}{2019-06-10} \ganttnewline
+	\ganttlinkedmilestone{Demonstration Event}{2019-06-16} \ganttnewline
+
+	\ganttnewline
+	\ganttgroup{Manufacturing}{2019-02-03}{2019-03-20} \ganttnewline
+	\ganttbar[name=mark1]{Finishing work on Mark 1}{2019-02-03}{2019-02-10} \ganttnewline
+	\ganttlinkedbar{Fuselage moulds}{2019-02-10}{2019-02-20} \ganttnewline
+	\ganttlinkedbar{Fuselage manufacturing}{2019-02-20}{2019-03-12} \ganttnewline
+	\ganttlinkedbar[name=mark2]{Assembly of airframe}{2019-03-12}{2019-03-20} \ganttnewline
+
+	\ganttnewline
+	\ganttgroup{Exams}{2019-03-20}{2019-05-03} \ganttnewline
+	\ganttgroup{4th year project}{2019-05-03}{2019-05-22} \ganttnewline
+
+	\ganttnewline
+	\ganttgroup{Flight Testing}{2019-02-10}{2019-06-16} \ganttnewline
+	\ganttbar[name=mark1-test]{Flight testing of Mark 1 - airframe}{2019-02-10}{2019-03-12} \ganttnewline
+	\ganttbar[name=mark2-test]{Flight testing of Mark 2 - airframe}{2019-03-20}{2019-06-16} \ganttnewline
+
+	\ganttlink{mark1}{mark1-test}
+	\ganttlink{mark1-test}{mark2}
+	\ganttlink{mark2}{mark2-test}
+\end{ganttchart} 
 }
+\begin{comment}
+\ganttgroup{Prop Rig}{2019-03-20}{2019-03-25} \ganttnewline
+\ganttbar{Basic assembly}{2019-04-20}{2019-04-30} \ganttnewline
+\ganttlinkedmilestone{Tcell arrives}{2019-06-07} \ganttnewline
+\ganttlinkedbar{Final assembly}{2019-04-11}{2019-04-15} \ganttnewline
+\ganttlinkedbar{Propeller tests}{2019-04-15}{2019-04-22} \ganttnewline
+\end{comment}
+
+\vspace*{1cm}
+\subsection{Table of risks}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{p{0.27\textwidth}|X|X|p{0.4\textwidth}} 
+	\textbf{Risk} & \textbf{Probability} & \textbf{Severity} & \textbf{Mitigation} \\ \hline
+	MTOM exceeds 6.9kg & High & High & Reduce payload by one Buxton water bottle \\ \hline
+	Insufficient time to complete manufacturing alongside studying for exams & High & High & Spend sleepless nights \\ 
+\end{tabularx}
+\end{table}
 
