@@ -39,6 +39,22 @@
 	\ganttlinkedbar{Fuselage moulds}{2019-02-10}{2019-02-20} \ganttnewline
 	\ganttlinkedbar{Fuselage manufacturing}{2019-02-20}{2019-03-12} \ganttnewline
 	\ganttlinkedbar[name=mark2]{Assembly of airframe}{2019-03-12}{2019-03-20} \ganttnewline
+	
+	\ganttnewline
+	\ganttgroup{Electrical}{2019-02-03}{2019-02-20} \ganttnewline
+	\ganttbar{Finish producing PCBs}{2019-02-03}{2019-02-05} \ganttnewline
+	\ganttlinkedbar{Electrical stress tests}{2019-02-05}{2019-02-12} \ganttnewline
+	\ganttlinkedbar{Production of spares}{2019-02-12}{2019-02-20} \ganttnewline
+    \ganttnewline
+
+	\ganttnewline
+	\ganttgroup{Software}{2019-02-03}{2019-06-16} \ganttnewline
+	\ganttbar{Finish low-level firmware}{2019-02-03}{2019-02-10} \ganttnewline
+	\ganttlinkedbar{Control system implementation}{2019-02-10}{2019-02-24} \ganttnewline
+	\ganttlinkedbar{Navigation and guidance}{2019-02-24}{2019-03-07} \ganttnewline
+	\ganttlinkedbar{Image recognition}{2019-03-07}{2019-03-28} \ganttnewline
+	\ganttbar{Testing and debugging}{2019-02-03}{2019-06-16} \ganttnewline
+    \ganttnewline
 
 	\ganttnewline
 	\ganttgroup{Exams}{2019-03-20}{2019-05-03} \ganttnewline
@@ -70,7 +86,9 @@
 \begin{tabularx}{\textwidth}{p{0.27\textwidth}|X|X|p{0.4\textwidth}} 
 	\textbf{Risk} & \textbf{Probability} & \textbf{Severity} & \textbf{Mitigation} \\ \hline
 	MTOM exceeds 6.9kg & High & High & Reduce payload by one Buxton water bottle \\ \hline
-	Insufficient time to complete manufacturing alongside studying for exams & High & High & Spend sleepless nights \\ 
+	Insufficient time to complete manufacturing alongside studying for exams & High & High & Spend sleepless nights \\ \hline
+	Member leaving team & Medium & High & Backup contacts for key areas (software, image recognition, etc.) \\ \hline
+	Insufficient funds to complete UAV & Low & High & Selling our livers \\
 \end{tabularx}
 \end{table}
 
