@@ -1,13 +1,6 @@
-\textcolor{red}{
-\begin{itemize}
-	\item
-	      functional description, rationale for selection of systems (airframe, propulsion, flight controls, navigation \& mission control, sensors, image processing, autonomy, payload carriage, fts) $->$ highlight innovative features
-	\item
-	      diagram showing hte preliminary system architecture and data flowfor navigation and mission control, flight control, vision sensors
-	\item
-		overall layout \& description with three-view scale drawing
-\end{itemize}
-}
+\subsection{Airframe}
+
+\subsection{Propulsion}
 
 \subsection{Flight Control System}
 The flight control system on board the UAV encompasses areas such as stability augmentation, navigation, and mission control. These tasks are performed on a completely custom 32-bit ARM-based microcontroller board, which has all required sensors and interfaces directly on it. Additionally, a Raspberry Pi 3+ single-board computer as well the corresponding Pi v2 camera is used for the tasks that require image processing and recognition. A block diagram overview of the entire system is given in Figure \ref{fig:SysBlockDiag} below.
@@ -32,9 +25,20 @@ Sensors used for feedback control, as well as higher level features such as GPS 
 \subsubsection{Navigation and Mission Control}
 Autonomous navigation and mission control is entirely performed on the previously mentioned custom microcontroller board. The system runs as a state machine switching between discrete states as needed, for instance for take-off, reconnaissance, landing, and so forth. The navigation system utilizes the lower-level functionality of the previously described stability augmentation system to set desired roll angles, altitude, airspeed, etc.
 
-\subsubsection{Image Processing}
+\subsection{Image Processing}
 The image processing and recognition is performed using a Raspberry Pi 3+ and a Pi v2 camera. The image recognition script is written in Python in combination with the OpenCV library. The system is running constantly, with a description of currently recognised targets being relayed to the main flight control system via a UART serial interface.
 
+\subsection{Innovative Features}
+\begin{itemize}
+	\item
+		innovative feature
+\end{itemize}
+
+\subsubsection{Flight Termination System (FTS)}
+See section \ref{sec:fts}.
+
+\subsection{Three view drawing}
+\vspace*{-0.4cm}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{three_view_drawing}
