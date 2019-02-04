@@ -1,6 +1,15 @@
 \subsection{Airframe}
+In this year's mission, the aircraft is required to cover more than 10km in less than 10 min. Furthermore, the aircraft should perform one 'mission lap' at high speed (just less than 60kts). Thus multirotor concepts are much less suited than in previous competition years, as their inferior aerodynamic efficiency would require large batteries and thus reduce the carried payload. Hence it was decided to employ a fixed wing design. Although other participants in the UAS challenge have successfully made use of flying wing concepts in previous years, this concept was deemed less suitable as it is less modular than a traditional aircraft with an empennage, so that the tail components of the aircraft are individually replacable in case of a crash. The same rationale was applied to the selection of the tail configuration. The H-tail allows for individual replacing of the horizontal and vertical stabilisers. This would not be possible with e.g. a V-tail. The modular design philosophy was applied to other parts of the UAV as well, for instance the servos are individually replacable.
+
+The UAV features high aspect ratio wings (AR=8.64) to reduce drag. The wings are manufactured from hot wire cut foam and covered in fibreglass using a novel technique developed by the team. The same technique is used for the manufacturing of the tail surfaces.
+
+The fuselage is made from fibreglass, using a CNC-machined mould. 
 
 \subsection{Propulsion}
+The UAV features a single 800W electric motor to allow for maximum speed during the mission. The propeller is of diameter 16in, to maximise propulsive efficiency. The battery has 4 cells and a capacity of 2500mAh.
+
+\subsection{Payload release}
+As payload release mechanism a commercially available unit is used, controlled by a servo. The payload bay automatically opens when the payload is released, as the weight of the payload pushes open the payload bay doors, which are held closed by little springs. This approach reduces mechanical and electronic complexity, as the payload bay door opening components are completely passive.
 
 \subsection{Flight Control System}
 The flight control system on board the UAV encompasses areas such as stability augmentation, navigation, and mission control. These tasks are performed on a completely custom 32-bit ARM-based microcontroller board, which has all required sensors and interfaces directly on it. Additionally, a Raspberry Pi 3+ single-board computer as well the corresponding Pi v2 camera is used for the tasks that require image processing and recognition. Finally, a 2.4GHz spread-spectrum transceiver is used both on the UAV and at the basestation to enable the transmission of mission-critical data. A block diagram overview of the entire system is given in Figure \ref{fig:SysBlockDiag} below.
@@ -33,6 +42,8 @@ The image processing and recognition is performed using a Raspberry Pi 3+ and a 
 	\item State-of-the-art $H_{\infty}$ control system.
 	\item Custom, high-speed electronic sub-systems.
 	\item In-flight system identification.
+	\item Novel manufacturing technique for glassing of wings.
+	\item Modular mechanical design.
 \end{itemize}
 
 \subsubsection{Flight Termination System (FTS)}
